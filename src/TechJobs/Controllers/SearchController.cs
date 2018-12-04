@@ -20,8 +20,9 @@ namespace TechJobs.Controllers
             ViewBag.columns = ListController.columnChoices; //all columns/fields are passed to ViewBag
              
             ViewBag.title = "Search";
-            if (string.IsNullOrEmpty(searchTerm))
+                          if (string.IsNullOrEmpty(searchTerm))
                           {
+                              ViewBag.jobs = JobData.FindAll();
                            return View("Index");
                           }
                           

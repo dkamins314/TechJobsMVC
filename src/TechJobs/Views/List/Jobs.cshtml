@@ -8,20 +8,18 @@
 
     <p>View jobs by:</p>
 
-  foreach(Dictionary<string, string> job in ViewBag.jobs)
-{
-    <table class="job-listing">
-        <tr>
-            @foreach (KeyValuePair<string, string> item in job)
-            {
-                <td>
-                    <a asp-controller="Search" asp-action="Results" asp-route-column="@item.Key">@item.Value</a>
-                </td>
-            }
-        </tr>
-    </table>
-}
-}
-else
-{
+    foreach (Dictionary<string, string> job in ViewBag.jobs)
+    {
+        <table class="job-listing">
+            <tr>
+                @foreach (KeyValuePair<string, string> item in job)
+                {
+                    <td>
+                        <a asp-controller="Search" asp-action="Results" asp-route-column="@item.Key">@item.Value</a>
+                    </td>
+                }
+            </tr>
+        </table>
+    }
+    
 }

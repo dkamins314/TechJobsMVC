@@ -1,17 +1,12 @@
 ﻿<h1>@ViewBag.Title</h1>
 <h2>View All</h2>
 
+ <ul>
+     @foreach (KeyValuePair<string, string> column in ViewBag.columns)
+     {
+         <li>
+             <a asp-controller="List" asp-action="Values" asp-route-column="@column.Key">@column.Value</a>
+         </li>
+     }
+ </ul>
 
-    foreach (Dictionary<string, string> job in ViewBag.jobs)
-    {<table class="job-listing">
-       <tr>
-        @foreach (KeyValuePair<string, string> item in job)
-        {
-            <td>
-                <a asp-controller="List" asp-action="Values" asp-route-column="@item.Key">@item.Value</a>
-            </td>
-        }
-       </tr>
-    }
-     </table>
-  }

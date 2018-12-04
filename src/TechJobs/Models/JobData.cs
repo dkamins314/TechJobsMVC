@@ -32,7 +32,7 @@ namespace TechJobs.Models
             {
                 string aValue = job[column];
 
-                if (!values.Contains(aValue))
+               if (!values.Contains(aValue))
                 {
                     values.Add(aValue);
                 }

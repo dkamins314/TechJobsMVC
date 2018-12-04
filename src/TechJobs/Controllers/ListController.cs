@@ -31,14 +31,14 @@ namespace TechJobs.Controllers
         {
             if (column.Equals("all"))//if request is to get all jobs
             {
-                IEnumerable<Dictionary<string, string>> jobs = JobData.FindAll();
+                List<Dictionary<string, string>> jobs = JobData.FindAll();
                 ViewBag.title =  "All Jobs";
                 ViewBag.jobs = jobs;
                 return View("Jobs");
             }
             else // if request is to get jobs based on user input for a certain field
             {
-                IEnumerable<string> items = JobData.FindAll(column);//A list called "items" will contain
+                List<string> items = JobData.FindAll(column);//A list called "items" will contain
                                                              // all matching properties found in that column
                 ViewBag.title =  "All " + columnChoices[column] + " Values";
                 ViewBag.column = column;//will pass field(column)title to display 
@@ -49,7 +49,7 @@ namespace TechJobs.Controllers
 
         public IActionResult Jobs(string column, string value)
         {
-            IEnumerable<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);
+            List<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);
             //dictionary "jobs" will hold job fields(columns) as keys and properties as values
             ViewBag.title = "Jobs with " + columnChoices[column] + ": " + value;
             //pass title  to be displayed "Jobs with (field): job value
